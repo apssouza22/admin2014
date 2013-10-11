@@ -1,0 +1,26 @@
+{
+    "name": "asouza/admin",
+    "description": "Meu admin pessoal",
+    "require": {
+        "respect/validation": "*",
+        "respect/rest": "*",
+        "respect/relational": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "Alexsandro Souza",
+            "email": "apssouza22@gmail.com"
+        }
+    ],
+	"minimum-stability" : "dev",
+	"autoload" : {
+		"psr-0" : {"Asouza" : "src/"}
+	},
+	"config" : {
+		"bin-dir" : "bin/"
+	}
+}

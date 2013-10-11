@@ -1,0 +1,36 @@
+{
+    "name": "Respect\/Data",
+    "description": "Persistence simplified",
+    "version": "0.2.1",
+    "type": "library",
+    "time": "2013-02-14 01:32:14",
+    "homepage": "",
+    "license": "BSD Style",
+    "authors": [
+        {
+            "name": "Rogerio Prado de Jesus",
+            "email": "rogeriopradoj@gmail.com"
+        },
+        {
+            "name": "Nick Lombard",
+            "email": "github@jigsoft.co.za"
+        },
+        {
+            "name": "Henrique Moody",
+            "email": "henriquemoody@gmail.com"
+        },
+        {
+            "name": "Augusto Pascutti",
+            "email": "augusto@phpsp.org.br"
+        },
+        {
+            "name": "Alexandre",
+            "email": "alexandre@gaigalas.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Respect\\Data": "library\/"
+        }
+    }
+}

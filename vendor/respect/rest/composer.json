@@ -1,0 +1,64 @@
+{
+    "name": "Respect\/Rest",
+    "description": "Thin controller for RESTful applications",
+    "version": "0.4.1",
+    "type": "library",
+    "time": "2012-04-18 21:49:54",
+    "homepage": "",
+    "license": "BSD Style",
+    "authors": [
+        {
+            "name": "Alexandre Gaigalas",
+            "email": "alexandre@gaigalas.net"
+        },
+        {
+            "name": "Anderson Casimiro",
+            "email": "duodraco@gmail.com"
+        },
+        {
+            "name": "Augusto Pascutti",
+            "email": "augusto@phpsp.org.br"
+        },
+        {
+            "name": "Ben Ramsey",
+            "email": "ben@benramsey.com"
+        },
+        {
+            "name": "eduardomarcate",
+            "email": "eduardo@marcate.info"
+        },
+        {
+            "name": "Henrique Moody",
+            "email": "henriquemoody@gmail.com"
+        },
+        {
+            "name": "kleberhs007",
+            "email": "kleberhs007@yahoo.com"
+        },
+        {
+            "name": "Leandro",
+            "email": "lleitep3@gmail.com"
+        },
+        {
+            "name": "Nick Rawe",
+            "email": "nickrawe2@gmail.com"
+        },
+        {
+            "name": "Pablo Lacerda de Miranda",
+            "email": "pablolmiranda@gmail.com"
+        },
+        {
+            "name": "Rogerio Prado de Jesus",
+            "email": "rogeriopradoj@gmail.com"
+        },
+        {
+            "name": "wesleyvicthor",
+            "email": "w.v.mendes.s@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Respect\\Rest": "library\/"
+        }
+    }
+}

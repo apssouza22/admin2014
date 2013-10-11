@@ -1,0 +1,22 @@
+*.svn
+*nbprojects
+*nbproject
+*.project
+*obj/
+*Properties/
+*.psd
+/userfiles
+*\templates_c
+
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+*.sublime-project
+*.sublime-workspace

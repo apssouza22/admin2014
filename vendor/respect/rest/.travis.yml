@@ -1,0 +1,6 @@
+language: php
+script: "cd tests;phpunit --testdox ."
+
+php:
+  - 5.3
+  - 5.4
