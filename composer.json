@@ -4,7 +4,10 @@
     "require": {
         "respect/validation": "*",
         "respect/rest": "*",
-        "respect/relational": "*"
+        "respect/relational": "*",
+		"zendframework/zend-authentication": "2.0.*",
+		"zendframework/zend-permissions-acl": "2.0.*",
+		"zendframework/zend-db": "2.0.*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"

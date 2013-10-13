@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e420aa3f11997863ed72256f589136f3",
+    "hash": "a1e8d99e06b5e970a2bed0f78966d7f4",
     "packages": [
         {
             "name": "respect/data",
@@ -117,7 +117,7 @@
             ],
             "description": "Fluent Database Toolkit",
             "homepage": "http://respect.li",
-            "time": "2013-05-06 19:12:12"
+            "time": "2012-05-05 19:11:23"
         },
         {
             "name": "respect/rest",
@@ -195,7 +195,7 @@
                 }
             ],
             "description": "Thin controller for RESTful applications",
-            "time": "2012-12-17 09:48:14"
+            "time": "2012-04-18 21:49:54"
         },
         {
             "name": "respect/validation",
@@ -294,7 +294,157 @@
                 }
             ],
             "description": "The most awesome validation engine ever created for PHP",
-            "time": "2012-12-17 09:51:01"
+            "time": "2012-04-24 23:52:45"
+        },
+        {
+            "name": "zendframework/zend-authentication",
+            "version": "2.0.8",
+            "target-dir": "Zend/Authentication",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendAuthentication.git",
+                "reference": "2e19292f1cb07a292a6582fc41978a48198e29c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendAuthentication/zipball/2e19292f1cb07a292a6582fc41978a48198e29c1",
+                "reference": "2e19292f1cb07a292a6582fc41978a48198e29c1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-session": "Zend\\Session component",
+                "zendframework/zend-uri": "Zend\\Uri component"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Authentication\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides an API for authentication and includes concrete authentication adapters for common use case scenarios",
+            "keywords": [
+                "Authentication",
+                "zf2"
+            ],
+            "time": "2013-01-22 20:50:52"
+        },
+        {
+            "name": "zendframework/zend-db",
+            "version": "2.0.8",
+            "target-dir": "Zend/Db",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendDb.git",
+                "reference": "4be4f8b546e91ccfabfbca698ee346082ead4487"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendDb/zipball/4be4f8b546e91ccfabfbca698ee346082ead4487",
+                "reference": "4be4f8b546e91ccfabfbca698ee346082ead4487",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "zendframework/zend-stdlib": "2.0.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Db\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "keywords": [
+                "db",
+                "zf2"
+            ],
+            "time": "2013-03-13 21:36:23"
+        },
+        {
+            "name": "zendframework/zend-permissions-acl",
+            "version": "2.0.8",
+            "target-dir": "Zend/Permissions/Acl",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendPermissionsAcl.git",
+                "reference": "58925a3c23a2b38a807a9894b1dc04ab7088aeae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendPermissionsAcl/zipball/58925a3c23a2b38a807a9894b1dc04ab7088aeae",
+                "reference": "58925a3c23a2b38a807a9894b1dc04ab7088aeae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Permissions\\Acl\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a lightweight and flexible access control list (ACL) implementation for privileges management",
+            "keywords": [
+                "acl",
+                "zf2"
+            ],
+            "time": "2013-01-22 10:37:58"
+        },
+        {
+            "name": "zendframework/zend-stdlib",
+            "version": "2.0.8",
+            "target-dir": "Zend/Stdlib",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendStdlib.git",
+                "reference": "955622d5b20e45c4cd2520f54cbca3b19cfec8c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendStdlib/zipball/955622d5b20e45c4cd2520f54cbca3b19cfec8c0",
+                "reference": "955622d5b20e45c4cd2520f54cbca3b19cfec8c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "pecl-weakref": "Implementation of weak references for Stdlib\\CallbackHandler"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Stdlib\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "keywords": [
+                "stdlib",
+                "zf2"
+            ],
+            "time": "2013-01-22 20:50:52"
         }
     ],
     "packages-dev": [
