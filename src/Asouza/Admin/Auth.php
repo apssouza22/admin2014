@@ -9,9 +9,11 @@ use Zend\Db\Adapter\Adapter as DbAdapter;
 use Zend\Authentication\Adapter\DbTable as AuthAdapter;
 
 /**
- * Description of Authenticate
+ * Classe que cuida da autenticação e verificação de permissões
+ * essa classe usa os componentes ACL e Auth do Zend
  *
- * @author apssouza
+ * @author Alexsandro
+ * @subpackage Zend ACL, Zend Auth
  */
 class Auth
 {
@@ -34,7 +36,7 @@ class Auth
 			'hostname' => 'localhost',
 			'username' => 'root',
 			'password' => '',
-			'dbname' => 'testedao'
+			'dbname' => 'testeadmin'
 		));
 
 		$this->auth = new AuthAdapter($dbAdapter, 'usuario', 'email', 'senha');
@@ -75,7 +77,6 @@ class Auth
 			$this->user = $this->auth->getResultRowObject(null, array('senha'));
 //			$storage = $this->auth->
 //			$storage->write($this->user);
-			$this->user->role = 'user';
 			return true;
 		}
 		return false;

@@ -18,7 +18,7 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-namespace Zend;
+namespace Asouza;
 
 use ArrayObject,
     RuntimeException;
@@ -37,7 +37,7 @@ class Registry extends ArrayObject
      * Class name of the singleton registry object.
      * @var string
      */
-    private static $registryClassName = 'Zend\\Registry';
+    private static $registryClassName = 'Asouza\\Registry';
 
     /**
      * Registry object provides storage for shared objects.
@@ -97,7 +97,7 @@ class Registry extends ArrayObject
      * @throws RuntimeException if the registry is initialized or if the
      *   class name is not valid.
      */
-    public static function setClassName($registryClassName = 'Zend\\Registry')
+    public static function setClassName($registryClassName = 'Asouza\\Registry')
     {
         if (self::$registry !== null) {
             throw new RuntimeException('Registry is already initialized');
