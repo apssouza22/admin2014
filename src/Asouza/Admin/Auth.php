@@ -19,12 +19,12 @@ class Auth
 {
 
 	private $acl;
-	private $user;
 	private $auth;
 	const salt = '$23ACDe@%al*';
 
 	public function __construct()
 	{
+		session_start();
 		$this->configAcl();
 		$this->configAuth();
 	}
@@ -60,21 +60,27 @@ class Auth
 
 	public function isAllowed($resource, $permission)
 	{
-		return $this->acl->isAllowed($this->user->role, $resource, $permission);
+		if(isset($_SESSION['userAuth'])){
+			return $this->acl->isAllowed($_SESSION['userAuth']->role, $resource, $permission);
+		}
+		return false;
 	}
 
 	public function authenticate($user, $pass)
 	{
-		$pass = sha1(self::salt . $pass);
+		$pass = self::generetePassWord($pass);
 		
 		$this->auth
 				->setIdentity($user)
 				->setCredential($pass);
 		
 		$result = $this->auth->authenticate();
+		
 		//http://framework.zend.com/manual/2.0/en/modules/zend.authentication.adapter.dbtable.html
 		if ($result->isValid()) {
-			$this->user = $this->auth->getResultRowObject(null, array('senha'));
+			$_SESSION['userAuth'] = $this->auth->getResultRowObject(null, array('senha'));
+			
+			//TODO::Falta implementar storage Auth do zend
 //			$storage = $this->auth->
 //			$storage->write($this->user);
 			return true;
@@ -82,7 +88,12 @@ class Auth
 		return false;
 	}
 	
+	public static function generetePassWord($pass){
+		return sha1(self::salt . $pass);
+	}
+
 	
+
 	private function genereteDynamicSalt(){
 		$dynamicSalt = '';
 		for ($i = 0; $i < 50; $i++) {

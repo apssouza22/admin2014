@@ -7,14 +7,12 @@ ini_set('display_startup_errors', 'On');
 
 
 $loader = require 'vendor/autoload.php';
-$loader->add('App', './');//adicionando root do namespace
-
+$loader->add('App', './');//add path to namespace App
 
 
 use \Asouza\Admin\Auth;
 use Respect\Relational\Mapper;
 use Respect\Relational\Db;
-use Respect\Relational\Sql;
 
 $mapper = new Mapper(new PDO("mysql:host=localhost; dbname=testeadmin; port=", 'root', ''));
 $db = new Db(new PDO("mysql:host=localhost; dbname=testeadmin; port=", 'root', ''));
@@ -24,21 +22,17 @@ $db = new Db(new PDO("mysql:host=localhost; dbname=testeadmin; port=", 'root', '
 \Asouza\Registry::set('db', $db);
 
 $model = new \Asouza\Model(13);
-var_dump($model->name);
-
-$obj = $model->insert(array(
-	'name' => 'Felipe homem',
-	'email' => 'felipe@gmail.com',
-	'id' => null
-));
-
-
 $model->count();
 
+//$user = new \Asouza\Admin\User;
+//$user->add(array(
+//	'name' => "Alexsandro",
+//	'email' => 'alex@agenciasalve.com.br',
+//	'role' => 'user',
+//	'password' => '1234'
+//));
 
-echo "<pre>";
-//var_dump($model->fetch(11));
-echo "</pre>";
+		
 
 $auth = new Auth();
 if($auth->authenticate('apssouza22@gmail.com', '1234')){
