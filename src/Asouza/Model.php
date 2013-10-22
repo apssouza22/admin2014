@@ -2,8 +2,6 @@
 
 namespace Asouza;
 
-
-
 /**
  * Class that handle CRUD
  *
@@ -12,90 +10,61 @@ namespace Asouza;
 class Model
 {
 
-	private $registry;
-	private $reflationObj;
+	protected $crud;
 
 	public function __construct($id = null)
 	{
-		$this->registry = \Asouza\Registry::getInstance();
-		$this->reflationObj = new \ReflectionObject($this);
-		if (isset($id) && !empty($id)) {
+		$this->crud = new Crud($this);
 
-			if ($obj = $this->fetch($id)) {
+		if (isset($id) && !empty($id)) {
+			if ($obj = $this->crud->fetch($id)) {
 				foreach (get_object_vars($obj) as $key => $value) {
 					$this->$key = $value;
 				}
 			}
 		}
 	}
+	
+	public function __get($name)
+	{
+		return isset($this->$name) ? $this->$name : '';
+	}
 
 	public function insert($data)
 	{
-//		$oData = new \ArrayObject($data, \ArrayObject::STD_PROP_LIST);
-		$oData = new \ArrayObject($data);
-		$this->registry['mapper']->{static::TABLE_NAME}->persist($oData);
-		$this->registry['mapper']->flush();
-		return $oData;
+		return $this->crud->insert($data);
 	}
 
 	public function fetch($id)
 	{
-		return $this->registry['mapper']->{static::TABLE_NAME}[$id]->fetch();
-		$this->registry['db']->select('*')
-				->from(static::TABLE_NAME)
-				->where(array('id' => $id))
-				->fetchAll($this->reflationObj->getName());
+		return $this->crud->fetch($id);
 	}
 
 	public function fetchAll($where = '1')
 	{
-//		$all = $this->registry['mapper']->{static::TABLE_NAME}(
-//				array('id' => 11)
-//			)->fetchAll();
-
-		$all = $this->registry['db']->select('*')
-				->from(static::TABLE_NAME)
-				->where($where)
-				->fetchAll($this->reflationObj->getName());
-		return $all;
+		return $this->crud->fetchAll($where);
 	}
 
 	public function update($data, $id)
 	{
-		$oData = new \ArrayObject($data);
-		$this->registry['mapper']->{static::TABLE_NAME}[$id]->fetch();
-		$this->registry['mapper']->{static::TABLE_NAME}->persist($oData);
-		$this->registry['mapper']->flush();
-		return $oData;
+		return $this->crud->update($data, $id);
 	}
 
 	public function store($data)
 	{
-		if (isset($data['id']) && !empty($data['id'])) {
-			return $this->update($data, $data['id']);
-		} else {
-			return $this->insert($data);
-		}
-		return false;
+		return $this->crud->store($data);
 	}
 
-	public function delete($id)
+	public function delete($id = null)
 	{
-		$std = new \stdClass();
-		$std->id = $id;
-		$this->registry['mapper']->{static::TABLE_NAME}->remove($std);
-		return $this->registry['mapper']->flush();
+		$id = $id ?: $this->id;
+		return $this->crud->delete($id);
 	}
 
 	public function count($where = '1')
 	{
-		$fetch = $this->registry['db']
-						->select('count(*) total')
-						->from(static::TABLE_NAME)
-						->where($where)->fetch();
-		return $fetch->total;
+		return $this->crud->count($where);
 	}
 
 }
 
-?>

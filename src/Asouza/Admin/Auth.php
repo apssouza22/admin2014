@@ -31,15 +31,10 @@ class Auth
 
 	private function configAuth()
 	{
-		$dbAdapter = new DbAdapter(array(
-			'driver' => 'PDO_MYSQL',
-			'hostname' => 'localhost',
-			'username' => 'root',
-			'password' => '',
-			'dbname' => 'testeadmin'
-		));
+        $registry = \Asouza\Registry::getInstance();
+		$dbAdapter = new DbAdapter($registry['dbconfig']);
 
-		$this->auth = new AuthAdapter($dbAdapter, 'usuario', 'email', 'senha');
+		$this->auth = new AuthAdapter($dbAdapter, 'admin_user', 'email', 'password');
 	}
 
 	private function configAcl()
@@ -50,11 +45,11 @@ class Auth
 				->addRole(new Role('admin'));
 
 		$this->acl->addResource(new Resource('userAction'));
-		$this->acl->addResource(new Resource('cms'));
+		$this->acl->addResource(new Resource('admin'));
 		//$this->acl->deny('user', 'userAction'); //retirando permissão, já não tinha
 
-		$this->acl->allow('gerente', 'userAction', array('create', 'edit')); //adicionando permissão
-		$this->acl->allow('user', 'cms', array('edit', 'delete', 'create', 'view'));
+		$this->acl->allow('gerente', 'userAction', array('all','create', 'edit')); //adicionando permissão
+		$this->acl->allow('user', 'admin', array('all','edit', 'delete', 'create', 'view'));
 		$this->acl->allow('admin'); //permitindo para o admin
 	}
 
@@ -78,7 +73,7 @@ class Auth
 		
 		//http://framework.zend.com/manual/2.0/en/modules/zend.authentication.adapter.dbtable.html
 		if ($result->isValid()) {
-			$_SESSION['userAuth'] = $this->auth->getResultRowObject(null, array('senha'));
+			$_SESSION['userAuth'] = $this->auth->getResultRowObject(null, array('password'));
 			
 			//TODO::Falta implementar storage Auth do zend
 //			$storage = $this->auth->
