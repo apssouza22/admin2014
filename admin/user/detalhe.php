@@ -75,7 +75,7 @@ if(!isset($oPage->id)){
 												</div>
 												<div class="span4">
 													<label><strong>Foto</strong></label>
-													<a href="<?php echo $oPage->picture?>" class="thumbnail">Foto</a>
+													<a href="<?php echo $oPage->picture?>" class="colorbox">Foto</a>
 												</div>
 											</div>
 
@@ -120,7 +120,7 @@ if(!isset($oPage->id)){
         <script src="../assets/js/scripts.js"></script>
         <script>
 			$(function() {
-				$(".thumbnail").colorbox({rel: 'thumbnail'});
+				$(".colorbox").colorbox({rel: 'colorbox'});
 
 				$('.js-visibility').click(function() {
 					$.jGrowl("Visibilidade alterada com sucesso", {header: 'Important'});
