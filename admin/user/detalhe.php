@@ -47,7 +47,7 @@ if(!isset($oPage->id)){
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Form Example</div>
+                                <div class="muted pull-left">Novo usuário</div>
 								<div class="pull-right" style="margin-top: -5px;">
 									<?php echo require '../includes/buttons_action.php'?>
                                 </div>

@@ -18,8 +18,8 @@ define('ENVIROMENT', $enviroment );
 $sitePath = '/';
 
 if (mb_strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-	$sitePath = '/jobs/plank/emkt/';	
-	$sitePath = '/free/admin/';	
+	$sitePath = '/opensource/admin2014/';	
+//	$sitePath = '/free/admin/';	
 }
 
 $host = $_SERVER['HTTP_HOST'] . '/';
@@ -44,6 +44,6 @@ $db = new Db($pdo);
 			'driver' => 'PDO_MYSQL',
 			'hostname' => 'localhost',
 			'username' => 'root',
-			'password' => '',
+			'password' => '5834',
 			'dbname' => 'testeadmin'
 		));

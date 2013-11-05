@@ -31,10 +31,10 @@ class Auth
 
 	private function configAuth()
 	{
-        $registry = \Asouza\Registry::getInstance();
-		$dbAdapter = new DbAdapter($registry['dbconfig']);
+            $registry = \Asouza\Registry::getInstance();
+            $dbAdapter = new DbAdapter($registry['dbconfig']);
 
-		$this->auth = new AuthAdapter($dbAdapter, 'admin_user', 'email', 'password');
+            $this->auth = new AuthAdapter($dbAdapter, 'admin_user', 'email', 'password');
 	}
 
 	private function configAcl()
@@ -65,9 +65,8 @@ class Auth
 	{
 		$pass = self::generetePassWord($pass);
 		
-		$this->auth
-				->setIdentity($user)
-				->setCredential($pass);
+		$this->auth->setIdentity($user)
+			->setCredential($pass);
 		
 		$result = $this->auth->authenticate();
 		
