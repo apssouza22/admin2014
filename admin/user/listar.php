@@ -5,7 +5,7 @@
 $sPage = '\\Asouza\\Admin\\User';
 $oPage = new $sPage;
 
-$aUsers = $oPage->fetchAll();
+$aUsers = $oPage->fetchAllObject();
 ?>
 <!DOCTYPE html>
 <html>

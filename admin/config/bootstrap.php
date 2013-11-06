@@ -19,7 +19,7 @@ $sitePath = '/';
 
 if (mb_strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
 	$sitePath = '/opensource/admin2014/';	
-//	$sitePath = '/free/admin/';	
+	$sitePath = '/free/admin/';	
 }
 
 $host = $_SERVER['HTTP_HOST'] . '/';
@@ -33,7 +33,8 @@ $loader->add('App', DIR_ROOT);//add path to namespace App
 
 use Respect\Relational\Db;
 
-$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
+//$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
+$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '');
 $pdo->exec("set names utf8");
 $pdo->setAttribute(1002, 'SET NAMES utf8');
 
@@ -44,6 +45,6 @@ $db = new Db($pdo);
 			'driver' => 'PDO_MYSQL',
 			'hostname' => 'localhost',
 			'username' => 'root',
-			'password' => '5834',
+			'password' => '',
 			'dbname' => 'testeadmin'
 		));
