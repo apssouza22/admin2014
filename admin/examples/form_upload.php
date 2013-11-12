@@ -1,5 +1,4 @@
 <?php require_once '../config/bootstrap.php'; ?>
-<?php require_once '../includes/authenticate.php'; ?>
 <?php
 
 $akna = new \App\Models\IntegracaoAkna;

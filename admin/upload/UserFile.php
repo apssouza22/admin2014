@@ -1,7 +1,5 @@
 <?php
 
-namespace Helpers;
-
 /**
  * Cuida dos uploads do site
  *
@@ -10,7 +8,7 @@ namespace Helpers;
 class UserFile {
 
     const folderTemp = 'temp/';
-
+    
     public function getNewName($oldName) {
         $aName = explode('.', $oldName);
         $ext = end($aName);
@@ -73,24 +71,28 @@ class UserFile {
             $aName = explode('/', $destination);
             $filename = end($aName);
         }
-        $temp = self::folderTemp . $filename;
-        $thumb = self::folderTemp . 't_' . $filename;
+        $pathUpload = dirname(__FILE__) . '/';
+        $temp = $pathUpload . self::folderTemp . $filename;
+        $thumb = $pathUpload. self::folderTemp . 't_' . $filename;
         $destinationPath = explode('/', $destination);
+        
+        if(!file_exists($temp)){return false;}
+        
         unset($destinationPath[count($destinationPath) - 1]);
 
         if ($this->move($temp, $destination)) {
             if (file_exists($thumb)) {
                 $this->move($thumb, implode('/', $destinationPath) . '/' . 't_' . $filename);
             }
-            $this->clearFolderTemp();
+            $this->clearFolderTemp($pathUpload);
             return true;
         }
 
         return false;
     }
 
-    public function clearFolderTemp() {
-        $files = scandir('./' . self::folderTemp);
+    public function clearFolderTemp($pathUpload) {
+        $files = scandir($pathUpload . self::folderTemp);
         $currentTime = time();
         $past = 86400; //um dia at�s
         foreach ($files as $filename) {
