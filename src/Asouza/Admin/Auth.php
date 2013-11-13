@@ -24,7 +24,6 @@ class Auth
 
 	public function __construct()
 	{
-		session_start();
 		$this->configAcl();
 		$this->configAuth();
 	}

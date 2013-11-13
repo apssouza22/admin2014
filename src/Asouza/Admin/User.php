@@ -29,7 +29,7 @@ class User extends Model implements IAdmin {
     }
 
     public static function getPgFolder() {
-        return DIR_HTM_ROOT . 'admin/user/';
+        return DIR_HTM_ROOT . 'admin/modulos/user/';
     }
 
     public static function getPgListar() {

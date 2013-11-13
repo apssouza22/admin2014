@@ -1,5 +1,5 @@
-<?php require_once '../config/bootstrap.php'; ?>
-<?php require_once '../includes/authenticate.php'; ?>
+<?php require_once '../../config/bootstrap.php'; ?>
+<?php require_once DIR_ROOT .'admin/includes/authenticate.php'; ?>
 <?php
 
 $sPage = '\\Asouza\\Admin\\User';
@@ -21,18 +21,18 @@ if(!isset($oPage->id)){
 <html>
 
     <head>
-       <?php require_once '../includes/head.php';?>
+       <?php require_once DIR_ROOT .'admin/includes/head.php'; ?>
     </head>
 
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
-               <?php require_once '../includes/menu-header.php'?>
+               <?php require_once DIR_ROOT .'admin/includes/menu-header.php'; ?>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <?php require_once '../includes/menu-sidebar.php';?>
+                <?php require_once DIR_ROOT .'admin/includes/menu-sidebar.php'; ?>
                 <!--/span-->
                 <div class="span9" id="content">
 					<!-- morris stacked chart -->
@@ -47,9 +47,9 @@ if(!isset($oPage->id)){
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Novo usuário</div>
+                                <div class="muted pull-left">Detalhes</div>
 								<div class="pull-right" style="margin-top: -5px;">
-									<?php echo require '../includes/buttons_action.php'?>
+									<?php echo require DIR_ROOT .'admin/includes/buttons_action.php'?>
                                 </div>
                             </div>
                             <div class="block-content collapse in">
@@ -100,24 +100,14 @@ if(!isset($oPage->id)){
             </div>
             <hr>
             <footer>
-                <?php require_once '../includes/footer.php'; ?>
+                <?php require_once DIR_ROOT .'admin/includes/footer.php'; ?>
             </footer>
         </div>
         <!--/.fluid-container-->
 
 
-        <?php require_once '../includes/js-footer.php'; ?>
+       <?php require_once DIR_ROOT .'admin/includes/js-footer.php'; ?>
 		
-		
-		<script src="../vendors/jGrowl/jquery.jgrowl.js"></script>
-		<link href="../vendors/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
-		
-		<!--ligthbox-->
-		<script src="../vendors/colorbox-master/jquery.colorbox-min.js"></script>
-		<link href="../vendors/colorbox-master/colorbox.css" rel="stylesheet"/>
-
-
-        <script src="../assets/js/scripts.js"></script>
         <script>
 			$(function() {
 				$(".colorbox").colorbox({rel: 'colorbox'});

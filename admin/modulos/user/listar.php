@@ -1,5 +1,5 @@
-<?php require_once '../config/bootstrap.php'; ?>
-<?php require_once '../includes/authenticate.php'; ?>
+<?php require_once '../../config/bootstrap.php'; ?>
+<?php require_once DIR_ROOT .'admin/includes/authenticate.php'; ?>
 <?php
 
 $sPage = '\\Asouza\\Admin\\User';
@@ -11,19 +11,18 @@ $aUsers = $oPage->fetchAllObject();
 <html>
 
 	<head>
-		<?php require_once '../includes/head.php'; ?>
-		<link href="../assets/css/DT_bootstrap.css" rel="stylesheet" media="screen">
+		<?php require_once DIR_ROOT .'admin/includes/head.php'; ?>
 	</head>
 
 	<body>
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
-				<?php require_once '../includes/menu-header.php'; ?>
+				<?php require_once DIR_ROOT .'admin/includes/menu-header.php'; ?>
 			</div>
 		</div>
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<?php require_once '../includes/menu-sidebar.php'; ?>
+				<?php require_once DIR_ROOT .'admin/includes/menu-sidebar.php'; ?>
 
 				<!--/span-->
 				<div class="span9" id="content">
@@ -33,7 +32,7 @@ $aUsers = $oPage->fetchAllObject();
 						<!-- block -->
 						<div class="block">
 							<div class="navbar navbar-inner block-header">
-								<div class="muted pull-left">Bootstrap dataTables</div>
+								<div class="muted pull-left">Usuários</div>
 							</div>
 							<div class="block-content collapse in">
 								<div class="span12">
@@ -53,7 +52,7 @@ $aUsers = $oPage->fetchAllObject();
 													<td><?php echo $oItem->email ?></td>
 													<td><?php echo $oItem->role ?></td>
 													<td class="center" width="95">
-															<?php echo require  '../includes/buttons_action.php'?>
+															<?php echo require DIR_ROOT .'admin/includes/buttons_action.php'?>
 													</td>
 												</tr>
 
@@ -70,15 +69,14 @@ $aUsers = $oPage->fetchAllObject();
 			</div>
 			<hr>
 			<footer>
-				<?php require_once '../includes/footer.php'; ?>
+				<?php require_once DIR_ROOT .'admin/includes/footer.php'; ?>
 			</footer>
 		</div>
 		<!--/.fluid-container-->
 
-		<?php require_once '../includes/js-footer.php'; ?>
+		<?php require_once DIR_ROOT .'admin/includes/js-footer.php'; ?>
 
-		<script src="../vendors/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="../assets/js/DT_bootstrap.js"></script>
+		<script src=<?php echo DIR_HTM_ROOT ?>"admin/assets/js/DT_bootstrap.js"></script>
 
 	</body>
 
