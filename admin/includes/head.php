@@ -7,7 +7,6 @@
 <link href="<?php echo DIR_HTM_ROOT?>admin/vendors/uniform.default.css" rel="stylesheet" media="screen">
 <link href="<?php echo DIR_HTM_ROOT?>admin/vendors/chosen.min.css" rel="stylesheet" media="screen">
 <link href="<?php echo DIR_HTM_ROOT?>admin/vendors/wysiwyg/bootstrap-wysihtml5.css" rel="stylesheet" media="screen">
-<script src="<?php echo DIR_HTM_ROOT?>admin/vendors/jGrowl/jquery.jgrowl.js"></script>
 <link href="<?php echo DIR_HTM_ROOT?>admin/vendors/colorbox-master/colorbox.css" rel="stylesheet"/>
 
 <!-- Bootstrap -->

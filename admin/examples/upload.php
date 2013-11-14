@@ -60,7 +60,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-actions">
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" class="btn btn-primary offset3">Save changes</button>
                                                 <button type="reset" class="btn">Cancel</button>
                                             </div>
                                         </fieldset>
@@ -84,11 +84,6 @@
 
         <?php require_once '../includes/js-footer.php'; ?>
 
-
-        <script src="../vendors/jquery.uniform.min.js"></script>
-        <script src="../vendors/chosen.jquery.min.js"></script>
-        <script src="../vendors/bootstrap-datepicker.js"></script>
-
          <!--upload-->
         <script src="../upload/js/jquery.ui.widget.js"></script>
         <script src="../upload/js/jquery.iframe-transport.js"></script>
@@ -96,21 +91,22 @@
         <script src="../upload/js/jquery.fileupload-process.js"></script>
         <script src="../upload/js/jquery.fileupload-validate.js"></script>
         <script src='../upload/js/myupload.js'></script>
-        <script>
+        <script type="text/javascript">
             var up = FileUpload('#fileupload');
             up.init({
-                url: '../upload/index.php',
+                url: "../upload/index.php",
                 done : function done(e, data) {
                     var file = data.result.name;
                     var $wrap = $('<span class="fItem" />');
                     var $exibir = $('<a/>')
                             .attr('target', '_blank')
-                            .prop('href', '../userfiles/news/files/'+file)
+                            .prop('href', '../vendors/Jcrop/demos/redimensiona.php?file=<?php echo DIR_ROOT . 'admin/upload/temp/'?>'+file+'&ratio=1.5')
+                            .addClass('lb-colorbox')
                             .text('exibir');		
                     
                     var $del = $('<a/>')
                             .attr('target', '_blank')
-                            .prop('href', '../upload/deletar.php?img=../userfiles/news/files/'+file)
+                            .prop('href', '../upload/deletar.php?img=../upload/temp/'+file)
                             .text('del');	
                     
                     var $inputHidden = $('<input  type="hidden" name="fls[]" />').val(file);
@@ -128,9 +124,14 @@
                             .after($inputHidden)
                             .siblings('span').text('Add Files');
                     $('#files').append($wrap);
+                    $(".lb-colorbox").off('click');
                     
+                     //$(".lb-colorbox").colorbox({rel: 'lb-colorbox', width:"80%", height:"80%"});
+                     $(".lb-colorbox").colorbox({iframe:true, width:"800px", height:"80%"});
                 }
             });
+            
+           
         </script>
         
     </body>
