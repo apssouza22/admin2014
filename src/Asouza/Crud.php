@@ -20,8 +20,7 @@ class Crud {
     public function insert($data) {
         $this->registry['db']->insertInto($this->reflationObj->getConstant('TABLE_NAME'), $data)
                 ->values($data)->exec();
-        var_dump($data);
-        return $data;
+        return $this->registry['db']->getConnection()->lastInsertId();
     }
 
     public function fetch($id) {
@@ -32,6 +31,14 @@ class Crud {
     }
 
     public function fetchAll($where = '1') {
+        $all = $this->registry['db']->select('*')
+                ->from($this->reflationObj->getConstant('TABLE_NAME'))
+                ->where($where)
+                ->fetchAll(array());
+        return $all;
+    }
+   
+    public function fetchAllObject($where = '1') {
         $all = $this->registry['db']->select('*')
                 ->from($this->reflationObj->getConstant('TABLE_NAME'))
                 ->where($where)

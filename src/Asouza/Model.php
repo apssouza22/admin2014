@@ -45,6 +45,11 @@ class Model
 		return $this->crud->fetchAll($where);
 	}
 
+	public function fetchAllObject($where = '1')
+	{
+		return $this->crud->fetchAllObject($where);
+	}
+
 	public function update($data, $id)
 	{
 		return $this->crud->update($data, $id);

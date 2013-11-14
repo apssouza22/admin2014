@@ -1,21 +1,19 @@
 <?php require_once '../config/bootstrap.php';?>
 <!DOCTYPE html>
 <html>
-
 	<head>
-		<?php require_once '../includes/head.php';?>
-		<link href="../assets/css/DT_bootstrap.css" rel="stylesheet" media="screen">
+		<?php require_once DIR_ROOT .'admin/includes/head.php'; ?>
 	</head>
 
 	<body>
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
-				<?php require_once '../includes/menu-header.php';?>
+				<?php require_once DIR_ROOT .'admin/includes/menu-header.php'; ?>
 			</div>
 		</div>
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<?php require_once '../includes/menu-sidebar.php';?>
+				<?php require_once DIR_ROOT .'admin/includes/menu-sidebar.php'; ?>
 				
 				<!--/span-->
 				<div class="span9" id="content">
@@ -195,19 +193,10 @@
 			</div>
 			<hr>
 			<footer>
-				<?php require_once '../includes/footer.php';?>
+				<?php require_once DIR_ROOT .'admin/includes/footer.php'; ?>
 			</footer>
 		</div>
-		<!--/.fluid-container-->
-
-		<?php require_once '../includes/js-footer.php';?>
-		
-		<script src="../vendors/datatables/js/jquery.dataTables.min.js"></script>
-
-
-		<script src="../assets/js/scripts.js"></script>
-		<script src="../assets/js/DT_bootstrap.js"></script>
-		
+		<?php require_once DIR_ROOT .'admin/includes/js-footer.php'; ?>
 	</body>
 
 </html>

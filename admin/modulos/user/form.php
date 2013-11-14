@@ -1,5 +1,5 @@
-<?php require_once '../config/bootstrap.php'; ?>
-<?php require_once '../includes/authenticate.php'; ?>
+<?php require_once '../../config/bootstrap.php'; ?>
+<?php require_once DIR_ROOT .'admin/includes/authenticate.php'; ?>
 <?php
 
 $sPage = '\\Asouza\\Admin\\User';
@@ -29,18 +29,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <html>
     
     <head>
-       <?php require_once '../includes/head.php'; ?>
+       <?php require_once DIR_ROOT .'admin/includes/head.php'; ?>
     </head>
     
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
-                <?php require_once '../includes/menu-header.php'?>
+                <?php require_once DIR_ROOT .'admin/includes/menu-header.php'?>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <?php require_once '../includes/menu-sidebar.php';?>
+                <?php require_once DIR_ROOT .'admin/includes/menu-sidebar.php';?>
                 <!--/span-->
                 <div class="span9" id="content">
                       <!-- morris stacked chart -->
@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 																				
 										<div class="control-group">
 											<div class="span4">
-												<label >Nome</label>
+                                                <label >Nome<span class=''> *</span></label>
 												<input class="span12 required" value="<?php echo $oPage->name?>" name="name" type="text" placeholder="digite seu nome">
 											</div>
 											<div class="span4">
@@ -103,7 +103,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 										
 										
                                         <div class="form-actions">
-                                          <button type="submit" class="btn btn-primary">Salvar</button>
+                                          <button type="submit" class="btn btn-primary offset3">Salvar</button>
                                           <a href="<?php echo $linkCancelar?>" class="btn">Cancelar</a>
                                         </div>
                                       </fieldset>
@@ -119,30 +119,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
             <hr>
             <footer>
-                <?php require_once '../includes/footer.php'; ?>
+                <?php require_once DIR_ROOT .'admin/includes/footer.php'; ?>
             </footer>
         </div>
-        <!--/.fluid-container-->
-        <link href="../vendors/datepicker.css" rel="stylesheet" media="screen">
-        <link href="../vendors/uniform.default.css" rel="stylesheet" media="screen">
-        <link href="../vendors/chosen.min.css" rel="stylesheet" media="screen">
-
-        <link href="../vendors/wysiwyg/bootstrap-wysihtml5.css" rel="stylesheet" media="screen">
-
-        
-		<?php require_once '../includes/js-footer.php'; ?>
+               
+		<?php require_once DIR_ROOT .'admin/includes/js-footer.php'; ?>
 		
-		
-        <script src="../vendors/jquery.uniform.min.js"></script>
-        <script src="../vendors/chosen.jquery.min.js"></script>
-        <script src="../vendors/bootstrap-datepicker.js"></script>
-
-		<!--navegação nas abas, passo a passo-->
-        <script src="../vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
-		
-		<script type="text/javascript" src="../vendors/tinymce/js/tinymce/tinymce.min.js"></script>
-		<script src="../assets/js/jquery.validaForm.js" type="text/javascript"></script>
-
 		<script type="text/javascript"> 
 
 			//VALIDATE FORM

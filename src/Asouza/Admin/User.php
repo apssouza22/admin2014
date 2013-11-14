@@ -3,6 +3,7 @@
 namespace Asouza\Admin;
 
 use Asouza\Model;
+use Respect\Validation\Validator as v;
 
 /**
  * Handle User Admin
@@ -14,6 +15,11 @@ class User extends Model implements IAdmin {
     const TABLE_NAME = 'admin_user';
 
     public function store($data) {
+        if(!v::notEmpty()->noWhitespace()->length(6)->validate($data['password']) ||
+                !v::email()->validate($data['email'])){
+            return false;
+        }
+        
         $data['password'] = htmlspecialchars(Auth::generetePassWord($data['password']));
         $data['email'] = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
         if ($data['email']) {
@@ -23,7 +29,7 @@ class User extends Model implements IAdmin {
     }
 
     public static function getPgFolder() {
-        return DIR_HTM_ROOT . 'admin/user/';
+        return DIR_HTM_ROOT . 'admin/modulos/user/';
     }
 
     public static function getPgListar() {

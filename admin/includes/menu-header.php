@@ -7,16 +7,16 @@
 	<div class="nav-collapse collapse">
 		<ul class="nav pull-right">
 			<li class="dropdown">
-				<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Vincent Gabriel <i class="caret"></i>
+				<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><?php echo $_SESSION['userAuth']->name?><i class="caret"></i>
 
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a tabindex="-1" href="<?php echo DIR_HTM_ROOT ?>user/detalhe.php?id=<?php $_SESSION['userAuth']->id ?>">Profile</a>
+						<a tabindex="-1" href="<?php echo DIR_HTM_ROOT ?>admin/modulos/user/detalhe.php?id=<?php echo $_SESSION['userAuth']->id ?>">Profile</a>
 					</li>
 					<li class="divider"></li>
 					<li>
-						<a tabindex="-1" href="logout.php">Logout</a>
+						<a tabindex="-1" href="<?php echo DIR_HTM_ROOT ?>admin/logout.php">Logout</a>
 					</li>
 				</ul>
 			</li>
@@ -29,10 +29,10 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a tabindex="-1" href="<?php echo DIR_HTM_ROOT ?>admin/user/listar.php">Listar</a>
+						<a tabindex="-1" href="<?php echo DIR_HTM_ROOT ?>admin/modulos/user/listar.php">Listar</a>
 					</li>
 					<li>
-						<a tabindex="-1" href="<?php echo DIR_HTM_ROOT ?>admin/user/form.php">Inserir</a>
+						<a tabindex="-1" href="<?php echo DIR_HTM_ROOT ?>admin/modulos/user/form.php">Inserir</a>
 					</li>
 					
 					<li class="divider"></li>

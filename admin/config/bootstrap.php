@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 'On');
 ini_set('display_startup_errors', 'On');
@@ -19,7 +19,7 @@ $sitePath = '/';
 
 if (mb_strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
 	$sitePath = '/opensource/admin2014/';	
-//	$sitePath = '/free/admin/';	
+	$sitePath = '/free/admin/';	
 }
 
 $host = $_SERVER['HTTP_HOST'] . '/';
@@ -32,19 +32,19 @@ $loader = require DIR_ROOT .'vendor/autoload.php';
 $loader->add('App', DIR_ROOT);//add path to namespace App
 
 use Respect\Relational\Db;
-$dbconfig = array(
-			'driver' => 'PDO_MYSQL',
-			'hostname' => 'localhost',
-			'username' => 'root',
-			'password' => '5834',
-			'dbname' => 'testeadmin'
-		);
 
-$pdo = new PDO("mysql:host={$dbconfig['hostname']}; dbname={$dbconfig['dbname']}; ", $dbconfig['username'], $dbconfig['password']);
+//$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
+$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '');
 $pdo->exec("set names utf8");
 $pdo->setAttribute(1002, 'SET NAMES utf8');
 
 $db = new Db($pdo);
 
 \Asouza\Registry::set('db', $db);
-\Asouza\Registry::set('dbconfig', $dbconfig);
+\Asouza\Registry::set('dbconfig', array(
+			'driver' => 'PDO_MYSQL',
+			'hostname' => 'localhost',
+			'username' => 'root',
+			'password' => '',
+			'dbname' => 'testeadmin'
+		));
