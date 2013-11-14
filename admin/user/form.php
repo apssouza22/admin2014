@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 								<h4 class="alert-heading">Erro!</h4>
 								Erro ao cadastrar os dados.
 							</div>
-						<?}?>
+						<?php }?>
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">

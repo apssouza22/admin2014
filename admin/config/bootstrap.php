@@ -32,18 +32,19 @@ $loader = require DIR_ROOT .'vendor/autoload.php';
 $loader->add('App', DIR_ROOT);//add path to namespace App
 
 use Respect\Relational\Db;
+$dbconfig = array(
+			'driver' => 'PDO_MYSQL',
+			'hostname' => 'localhost',
+			'username' => 'root',
+			'password' => '5834',
+			'dbname' => 'testeadmin'
+		);
 
-$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
+$pdo = new PDO("mysql:host={$dbconfig['hostname']}; dbname={$dbconfig['dbname']}; ", $dbconfig['username'], $dbconfig['password']);
 $pdo->exec("set names utf8");
 $pdo->setAttribute(1002, 'SET NAMES utf8');
 
 $db = new Db($pdo);
 
 \Asouza\Registry::set('db', $db);
-\Asouza\Registry::set('dbconfig', array(
-			'driver' => 'PDO_MYSQL',
-			'hostname' => 'localhost',
-			'username' => 'root',
-			'password' => '5834',
-			'dbname' => 'testeadmin'
-		));
+\Asouza\Registry::set('dbconfig', $dbconfig);

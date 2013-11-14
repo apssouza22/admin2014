@@ -20,7 +20,8 @@ class Crud {
     public function insert($data) {
         $this->registry['db']->insertInto($this->reflationObj->getConstant('TABLE_NAME'), $data)
                 ->values($data)->exec();
-        return $this->registry['db']->lastInsertId();
+        var_dump($data);
+        return $data;
     }
 
     public function fetch($id) {

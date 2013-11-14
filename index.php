@@ -16,11 +16,9 @@ $db = new Db(new PDO("mysql:host=localhost; dbname=testeadmin; port=", 'root', '
 
 $oUser = new Asouza\Admin\User;
 $result = $oUser->store(array(
-    'id' => 2,
     'name' => 'Souza',
     'email' => 'apssouza@gmail.com',
     'password' => 0
 ));
 
-$result = $oUser->delete(3);
 var_dump($result);
