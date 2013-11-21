@@ -219,3 +219,7 @@ body {
 	direction: ltr;
 	cursor: pointer;
 }
+
+.message-preview .message{
+	display: block;
+}

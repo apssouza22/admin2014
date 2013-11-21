@@ -17,29 +17,7 @@ $(function() {
 		$('#sidebar').show('fast');
 	});
 	
-	//========================================
-	//submenu lateral - inicio
-	//========================================
-	
-	$('.submenu').click(function(e) {
-		e.stopPropagation();
-	});
-
-	$(".btn-group1").click(function() {
-		if ($(this).hasClass('open')) {
-			$(".submenu", this).slideUp();
-		} else {
-			$(".submenu", this).slideDown();
-		}
-	});
-
-	$(".submenu").slideUp();
-	
-	//========================================
-	//submenu lateral - fim
-	//========================================
-	
-	
+		
 	//========================================
 	//deletar registro
 	//========================================
