@@ -1,3 +1,17 @@
+<?php 
+$file = $_GET['file'];
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    require_once "../../../../src/Asouza/ImageEdit/ImageEdit.class.php";
+    $image = new ImageEdit($_POST['file']);
+    $aFile = explode('/', $_POST['file']);
+    $root = dirname(dirname(dirname(__DIR__)));
+    $file = $root . '/c_' . end($aFile);
+    unset($_POST['file']);
+    $image->cropSelectedArea($_POST, 600, 600);
+	$image->getOutputImage($file);
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,12 +49,10 @@
             // event handlers, as per the Jcrop invocation above
             function showCoords(c)
             {
-                $('#x1').val(c.x);
-                $('#y1').val(c.y);
-                $('#x2').val(c.x2);
-                $('#y2').val(c.y2);
-                $('#w').val(c.w);
-                $('#h').val(c.h);
+                $('#x').val(c.x);
+				$('#y').val(c.y);
+				$('#w').val(c.w);
+				$('#h').val(c.h);
             };
 
             function clearCoords()
@@ -58,12 +70,16 @@
                 <div style="width: 662px;">
                     <div class="jc-demo-box">
                         <!-- This is the image we're attaching Jcrop to -->
-                        <img src="../../../../src/Asouza/ImageEdit/output.php?file=<?php echo $_GET['file']?>&wmax=600&hmax=600" id="target" alt="[Jcrop Example]" />
+                        <img src="../../../../src/Asouza/ImageEdit/output.php?file=<?php echo $file?>&wmax=600&hmax=600" id="target" alt="[Jcrop Example]" />
                         <form id="coords"
                               class="coords"
-                              onsubmit="return false;"
-                              action="">
-
+                              action="" method="post">
+                            <input type="hidden" id="x" name="x" />
+                            <input type="hidden" id="y" name="y" />
+                            <input type="hidden" id="w" name="w" />
+                            <input type="hidden" id="h" name="h" />
+                            <input type="hidden"  name="file" value="<?php echo $_GET['file']?>" />
+                            
                             <div class="inline-labels">
                                 <button type="submit" class="btn btn-primary offset3">Save changes</button>
                             </div>
