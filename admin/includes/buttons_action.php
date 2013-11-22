@@ -10,10 +10,10 @@ if (isset($_GET['id'])) {
 
 $bt_edit = '<a href="'.$sPage::getPgEditar().'?id=' . $oItem->id . '" class="btn btn-list" title="editar"><i class="icon-pencil "></i></a>';
 
-$bt_del = '<a class="btn btn-list" href="'.DIR_HTM_ROOT.'admin/excluir.php?id=' . $oItem->id . '&classe='.$sPage.'" title="excluir"><i class="icon-remove "></i></a>';
+$bt_del = '<a class="btn btn-list js-delete-item" href="'.DIR_HTM_ROOT.'admin/excluir.php?id=' . $oItem->id . '&classe='.$sPage.'" title="excluir"><i class="icon-remove "></i></a>';
 
 $classe_visibilidade = $oItem->status==1 ? 'btn-success' : '';
-$bt_olho = '<a href="'.DIR_HTM_ROOT.'admin/ajax.php" onclick="return toggle_exibir(\''.$sPage.'\', ' . $oItem->id . ', this)" class="btn js-visibility btn-list '.$classe_visibilidade.'" title="status"><i class="icon-eye-open"></i></a>';
+$bt_olho = '<a href="'.DIR_HTM_ROOT.'admin/ajax.php" class="btn js-change-visibility btn-list visible-false '.$classe_visibilidade.'" data-classe="'.$sPage.'" data-id="' . $oItem->id . '" title="status"><i class="icon-eye-open"></i></a>';
 
 $botoes_edicao = $bt_view . $bt_edit . $bt_del . $bt_olho;
 

@@ -21,11 +21,22 @@ $(function() {
 	//========================================
 	//deletar registro
 	//========================================
-	$('.btn-danger').click(function(e){
+	$('.js-delete-item').click(function(e){
 		e.preventDefault();
 		if(window.confirm('Deseja realmente deletar o registro?')){
 			window.location.href = $(this).attr('href');
 		}
+	});
+	
+	$('.js-change-visibility').click(function(e){
+		e.preventDefault();
+		var postData = 'classe='+ $(this).data('classe') + '&method=changeStatus&id='+$(this).data('id');
+		
+		common.ajax(postData, function(e){
+			if(!parseInt(e)){
+				$(this).css('opacity','0.5');
+			}
+		});
 	});
 	
 });

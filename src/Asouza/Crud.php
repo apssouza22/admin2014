@@ -30,16 +30,16 @@ class Crud {
                 ->fetch($this->reflationObj->getName());
     }
 
-    public function fetchAll($where = '1') {
-        $all = $this->registry['db']->select('*')
+    public function fetchAll($where = '1', $columns = '*') {
+        $all = $this->registry['db']->select($columns)
                 ->from($this->reflationObj->getConstant('TABLE_NAME'))
                 ->where($where)
                 ->fetchAll(array());
         return $all;
     }
    
-    public function fetchAllObject($where = '1') {
-        $all = $this->registry['db']->select('*')
+    public function fetchAllObject($where = '1', $columns = '*') {
+        $all = $this->registry['db']->select($columns)
                 ->from($this->reflationObj->getConstant('TABLE_NAME'))
                 ->where($where)
                 ->fetchAll($this->reflationObj->getName());
@@ -47,6 +47,7 @@ class Crud {
     }
 
     public function update($data, $id) {
+        unset($data['id']);
         return $this->registry['db']->update($this->reflationObj->getConstant('TABLE_NAME'))
                         ->set($data)->where(array('id' => $id))->exec();
     }

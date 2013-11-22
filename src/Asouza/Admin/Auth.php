@@ -31,7 +31,7 @@ class Auth
 	private function configAuth()
 	{
             $registry = \Asouza\Registry::getInstance();
-            $dbAdapter = new DbAdapter($registry['dbadapter']);
+            $dbAdapter = new DbAdapter($registry['dbconfig']);
 
             $this->auth = new AuthAdapter($dbAdapter, 'admin_user', 'email', 'password');
 	}

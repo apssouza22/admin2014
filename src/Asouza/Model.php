@@ -30,6 +30,17 @@ class Model
 		return isset($this->$name) ? $this->$name : '';
 	}
 
+    public function changeStatus(){
+        $obj = $this->crud->fetch($_REQUEST['id']);
+        $status = !$obj->visible;
+        
+        $this->update(array(
+            'visible' => $status
+        ), $_REQUEST['id']);
+        
+        return $status;
+    }
+    
 	public function insert($data)
 	{
 		return $this->crud->insert($data);
@@ -40,14 +51,14 @@ class Model
 		return $this->crud->fetch($id);
 	}
 
-	public function fetchAll($where = '1')
+	public function fetchAll($where = '1',$columns = '*')
 	{
-		return $this->crud->fetchAll($where);
+		return $this->crud->fetchAll($where, $columns);
 	}
 
-	public function fetchAllObject($where = '1')
+	public function fetchAllObject($where = '1', $columns = '*')
 	{
-		return $this->crud->fetchAllObject($where);
+		return $this->crud->fetchAllObject($where, $columns);
 	}
 
 	public function update($data, $id)

@@ -223,3 +223,13 @@ body {
 .message-preview .message{
 	display: block;
 }
+
+.box-scroll-y{overflow-x: hidden;overflow-y: auto;}
+
+.box-height{height: 200px;}
+
+.box-height-400{height: 400px;}
+
+.visible-false{
+	opacity: 0.5;
+}
