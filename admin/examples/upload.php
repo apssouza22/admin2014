@@ -102,7 +102,7 @@
                             .attr('target', '_blank')
                             .prop('href', '../vendors/Jcrop/demos/redimensiona.php?file=<?php echo DIR_ROOT . 'admin/upload/temp/'?>'+file+'&ratio=1.5')
                             .addClass('lb-colorbox')
-                            .text('exibir');		
+                            .text('editar');		
                     
                     var $del = $('<a/>')
                             .attr('target', '_blank')

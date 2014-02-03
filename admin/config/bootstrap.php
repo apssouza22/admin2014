@@ -26,8 +26,8 @@ define('ENVIROMENT', $enviroment );
 $sitePath = '/';
 
 if (mb_strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-	$sitePath = '/opensource/admin2014/';	
-	$sitePath = '/free/admin/';	
+	$sitePath = '/Meusprojetos/opensource/admin2014/';	
+	//$sitePath = '/free/admin/';	
 }
 
 $host = $_SERVER['HTTP_HOST'] . '/';

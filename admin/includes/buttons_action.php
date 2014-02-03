@@ -12,8 +12,8 @@ $bt_edit = '<a href="'.$sPage::getPgEditar().'?id=' . $oItem->id . '" class="btn
 
 $bt_del = '<a class="btn btn-list js-delete-item" href="'.DIR_HTM_ROOT.'admin/excluir.php?id=' . $oItem->id . '&classe='.$sPage.'" title="excluir"><i class="icon-remove "></i></a>';
 
-$classe_visibilidade = $oItem->status==1 ? 'btn-success' : '';
-$bt_olho = '<a href="'.DIR_HTM_ROOT.'admin/ajax.php" class="btn js-change-visibility btn-list visible-false '.$classe_visibilidade.'" data-classe="'.$sPage.'" data-id="' . $oItem->id . '" title="status"><i class="icon-eye-open"></i></a>';
+$classe_visibilidade = $oItem->visible==1 ? '' : 'visible-false';
+$bt_olho = '<a href="'.DIR_HTM_ROOT.'admin/ajax.php" class="btn js-change-visibility btn-list '.$classe_visibilidade.'" data-classe="'.$sPage.'" data-id="' . $oItem->id . '" title="status"><i class="icon-eye-open"></i></a>';
 
 $botoes_edicao = $bt_view . $bt_edit . $bt_del . $bt_olho;
 

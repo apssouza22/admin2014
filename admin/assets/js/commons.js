@@ -29,7 +29,7 @@
 		fuPublic.ajax = function(postData, done){
 			$.ajax({
 				type: "POST",
-				url: "../ajax.php",
+				url: "../../ajax.php",
 				data: postData
 			}).done(done);
 		};
