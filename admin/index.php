@@ -6,7 +6,7 @@
 			header('location: home.php');
 			exit;
 		}else{
-//			echo "erro no login";
+			echo "erro no login";
 		}
 	}
 ?>

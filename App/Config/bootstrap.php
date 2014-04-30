@@ -1,5 +1,4 @@
 <?php
-session_start();
 date_default_timezone_set('America/Sao_Paulo');
 
 ini_set('error_reporting', E_ALL);
