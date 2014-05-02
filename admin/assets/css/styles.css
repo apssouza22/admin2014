@@ -233,3 +233,7 @@ body {
 .visible-false{
 	opacity: 0.5;
 }
+
+.detalhes label{
+	font-weight: bold;
+}
