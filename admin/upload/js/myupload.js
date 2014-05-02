@@ -4,7 +4,7 @@ var FileUpload = function(inputFile) {
 	var sInputFile = inputFile;
 	var $inputFile = $(inputFile);
 	var acceptFileTypes = {
-		'img' : '/(\.|\/)(gif|jpe?g|png)$/i'
+		'img' : /(\.|\/)(gif|jpe?g|png)$/i
 	};
 	
 	var params = {
