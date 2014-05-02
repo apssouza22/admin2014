@@ -33,9 +33,8 @@ class Model
     public function changeStatus(){
         $obj = $this->crud->fetch($_REQUEST['id']);
         $status = !$obj->visible;
-        
         $this->update(array(
-            'visible' => $status
+            'visible' => (int)$status
         ), $_REQUEST['id']);
         
         return $status;
