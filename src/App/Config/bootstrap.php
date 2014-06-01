@@ -41,7 +41,6 @@ $pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
 $pdo->exec("set names utf8");
 $pdo->setAttribute(1002, 'SET NAMES utf8');
 
-$db = new Db($pdo);
 
-\Asouza\Registry::set('db', $db);
+\Asouza\Registry::set('pdo', $pdo);
 \Asouza\Registry::set('dbconfig',$dbconfig);

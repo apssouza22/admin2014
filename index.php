@@ -4,39 +4,40 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 'On');
 ini_set('display_startup_errors', 'On');
 
+
+
+require './src/App/Config/bootstrap.php';
 $loader = require 'vendor/autoload.php';
-$loader->add('App', './');//add path to namespace App
-$conn = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '');
+$loader->add('App', './src/');//add path to namespace App
+$conn = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
 
-//$conn = new \PDO("mysql:host=186.202.152.99;dbname=mipbrasilfarma11", "mipbrasilfarma11", "salveqa@2008");
-//$conn = new \PDO("mysql:host=localhost; dbname=testeadmin; port=" , 'root', '');
-//echo 'teste';
-//exit;
-
-use Respect\Relational\Db;
-$db = new Db($conn);
-$mapper = new \Respect\Relational\Mapper($conn);
-$all = $mapper->admin_user(
-        
-        )
-    ->fetchAll(\Respect\Relational\Sql::orderBy('name')->desc()->limit(1));
-
-var_dump($all);
-exit;;
-
-\Asouza\Registry::set('db', $db);
 
 $oUser = new Asouza\Admin\User;
-//$result = $oUser->store(array(
-//    'name' => 'Souza',
-//    'email' => 'apssouza@gmail.com',
-//    'password' => 0,
-//    'role' => 'user',
-//));
+var_dump($oUser->count('role = "user"'));
+var_dump($oUser->delete(10));
+var_dump($oUser->fetch(2));
+var_dump($oUser->fetchObject(2));
+var_dump($oUser->fetchAllObject());
+var_dump($oUser->fetchAll());
+exit;
 
-//$result = $oUser->delete(3);
-
-$result = $db->select('*')->from('admin_user')->getSQL()->appendQuery(
-            Respect\Relational\Sql::orderBy('id')->desc()->limit(2)
-        )->fetchAll();
+//INSERT
+$result = $oUser->store(array(
+    'name' => 'Alex2ultimo',
+    'email' => 'apssouza222@gmail.com',
+    'password' => '583471',
+    'role' => 'user',
+));
 var_dump($result);
+
+//UPDATE
+$result = $oUser->store(array(
+    'id' => 2,
+    'name' => 'Alex2',
+    'email' => 'apssouza222@gmail.com',
+    'password' => '583471',
+    'role' => 'user',
+));
+
+var_dump($result);
+
