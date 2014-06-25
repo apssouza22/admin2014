@@ -4,14 +4,11 @@
     "require": {
         "respect/validation": "*",
         "respect/rest": "*",
-        "respect/relational": "*",
-		"zendframework/zend-authentication": "2.0.*",
-		"zendframework/zend-permissions-acl": "2.0.*",
-		"zendframework/zend-db": "2.0.*"
+        "zendframework/zend-authentication": "2.0.*",
+        "zendframework/zend-permissions-acl": "2.0.*",
+        "zendframework/zend-db": "2.0.*"
     },
-    "require-dev": {
-        "phpunit/phpunit": "*"
-    },
+    
     "license": "Apache",
     "authors": [
         {
@@ -19,11 +16,11 @@
             "email": "apssouza22@gmail.com"
         }
     ],
-	"minimum-stability" : "dev",
-	"autoload" : {
-		"psr-0" : {"Asouza" : "src/"}
-	},
-	"config" : {
-		"bin-dir" : "bin/"
-	}
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {"Asouza": "src/"}
+    },
+    "config": {
+        "bin-dir": "bin/"
+    }
 }

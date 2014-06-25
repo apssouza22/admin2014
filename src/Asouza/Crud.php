@@ -17,39 +17,65 @@ class Crud {
         $this->reflationObj = new \ReflectionObject($bj);
     }
 
-    public function insert($data) {
-        $this->registry['db']->insertInto($this->reflationObj->getConstant('TABLE_NAME'), $data)
-                ->values($data)->exec();
-        return $this->registry['db']->getConnection()->lastInsertId();
+    public function insert($data, $htmlspecialchars = true) {
+        $result = \Asouza\Dao\Query::create($this->registry['pdo'])
+                ->insert($this->reflationObj->getConstant('TABLE_NAME'))
+                ->data($data, $htmlspecialchars)
+                ->save();
+        return $result;
     }
 
     public function fetch($id) {
-        return $this->registry['db']->select('*')
-                ->from($this->reflationObj->getConstant('TABLE_NAME'))
-                ->where(array('id' => $id))
-                ->fetch($this->reflationObj->getName());
+        $select = new \Asouza\Dao\Select($this->registry['pdo'], '*');
+        $select->from($this->reflationObj->getConstant('TABLE_NAME'));
+        $select->where("id  = :id", array('id'=> $id));
+        return $select->fetchOne();
+    }
+    
+    public function fetchObject($id) {
+        $select = new \Asouza\Dao\Select($this->registry['pdo'], '*', $this->reflationObj->getName());
+        $select->from($this->reflationObj->getConstant('TABLE_NAME'));
+        $select->where("id  = :id", array('id'=> $id));
+        return $select->fetchObject();
+    }
+    
+
+    public function fetchAll(\Asouza\Dao\Filter $filter = null, $columns = '*', $obj = false) {
+        $select = \Asouza\Dao\Query::create($this->registry['pdo'])
+                ->setClass($this->reflationObj->getName())
+                ->select($columns)
+                ->from($this->reflationObj->getConstant('TABLE_NAME'));
+
+        if ($filter) {
+            $select->setFilter($filter);
+        }
+
+        if ($obj) {
+            return $select->fetchAllObject();
+        } else {
+            return $select->fetchAll();
+        }
     }
 
-    public function fetchAll($where = '1', $columns = '*') {
-        $all = $this->registry['db']->select($columns)
-                ->from($this->reflationObj->getConstant('TABLE_NAME'))
-                ->where($where)
-                ->fetchAll(array());
-        return $all;
-    }
-   
-    public function fetchAllObject($where = '1', $columns = '*') {
-        $all = $this->registry['db']->select($columns)
-                ->from($this->reflationObj->getConstant('TABLE_NAME'))
-                ->where($where)
-                ->fetchAll($this->reflationObj->getName());
-        return $all;
+    public function fetchAllObject(\Asouza\Dao\Filter $filter = null, $columns = '*') {
+        return $this->fetchAll($filter, $columns, true);
     }
 
-    public function update($data, $id) {
+    public function update($data, $id, $htmlspecialchars = true) {
         unset($data['id']);
-        return $this->registry['db']->update($this->reflationObj->getConstant('TABLE_NAME'))
-                        ->set($data)->where(array('id' => $id))->exec();
+        $result = \Asouza\Dao\Query::create($this->registry['pdo'])
+                ->update($this->reflationObj->getConstant('TABLE_NAME'))
+                ->data($data, $htmlspecialchars)
+                ->where('id = :id', array(
+                    'id' => $id
+                ))
+                ->save();
+
+        if ($result) {
+            return $id;
+        }
+
+        return false;
     }
 
     public function store($data) {
@@ -61,15 +87,18 @@ class Crud {
     }
 
     public function delete($id) {
-       return  $this->registry['db']->deleteFrom($this->reflationObj->getConstant('TABLE_NAME'))
-                ->where(array('id' => $id))->exec();
+        $result = \Asouza\Dao\Query::create($this->registry['pdo'])
+                ->delete($this->reflationObj->getConstant('TABLE_NAME'))
+		->where("id  = :id", array('id'=> $id))
+		->exec();
+        return $result;
     }
 
     public function count($where = '1') {
-        $fetch = $this->registry['db']
-                        ->select('count(*) total')
-                        ->from($this->reflationObj->getConstant('TABLE_NAME'))
-                        ->where($where)->fetch();
+        $select = new \Asouza\Dao\Select($this->registry['pdo'], 'count(*) total');
+        $select->from($this->reflationObj->getConstant('TABLE_NAME'));
+        $select->where($where);
+        $fetch =  $select->fetchObject();
         return $fetch->total;
     }
 

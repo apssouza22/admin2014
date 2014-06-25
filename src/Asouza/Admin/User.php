@@ -15,6 +15,7 @@ class User extends Model implements IAdmin {
     const TABLE_NAME = 'admin_user';
 
     public function store($data) {
+        
         if(!v::notEmpty()->noWhitespace()->length(6)->validate($data['password']) ||
                 !v::email()->validate($data['email'])){
             return false;
