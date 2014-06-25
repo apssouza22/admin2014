@@ -66,28 +66,20 @@ class UserFile {
         }
     }
 
-    public function save($destination, $filename = null) {
-        if (!$filename) {
+    public function save($destination, $filetemp = null) {
+        if (!$filetemp) {
             $aName = explode('/', $destination);
-            $filename = end($aName);
+            $filetemp = end($aName);
         }
-        $pathUpload = dirname(__FILE__) . '/';
-        $temp = $pathUpload . self::folderTemp . $filename;
-        $thumb = $pathUpload. self::folderTemp . 't_' . $filename;
-        $destinationPath = explode('/', $destination);
+        $pathUpload = __DIR__ . '/';
+        $temp = $pathUpload . self::folderTemp . $filetemp;
         
         if(!file_exists($temp)){return false;}
-        
-        unset($destinationPath[count($destinationPath) - 1]);
 
         if ($this->move($temp, $destination)) {
-            if (file_exists($thumb)) {
-                $this->move($thumb, implode('/', $destinationPath) . '/' . 't_' . $filename);
-            }
             $this->clearFolderTemp($pathUpload);
             return true;
         }
-
         return false;
     }
 
