@@ -49,6 +49,7 @@
                                         <fieldset>
                                             <div class="control-group">
                                                 <div class="span3">
+                                                    <a class="btn colorbox" href=""><i class="icon-eye-open"></i></a>
                                                     <span class="btn btn-success fileinput-button">
                                                         <i class="glyphicon glyphicon-plus"></i>
                                                         <span>Add files...</span>
