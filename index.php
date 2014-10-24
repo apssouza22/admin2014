@@ -13,6 +13,14 @@ $conn = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
 
 
 $oUser = new Asouza\Admin\User;
+$result = $oUser->store(array(
+    'name' => 'Alex',
+    'email' => 'apssouza22@gmail.com',
+    'password' => '58347105',
+    'role' => 'user',
+));
+var_dump($result);
+
 var_dump($oUser->count('role = "user"'));
 var_dump($oUser->delete(10));
 var_dump($oUser->fetch(2));
