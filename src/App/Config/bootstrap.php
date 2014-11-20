@@ -9,7 +9,7 @@ $dbconfig = array(
 			'driver' => 'PDO_MYSQL',
 			'hostname' => 'localhost',
 			'username' => 'root',
-			'password' => '5834',
+			'password' => '',
 			'dbname' => 'testeadmin'
 		);
 
@@ -36,8 +36,8 @@ $loader = require DIR_ROOT .'vendor/autoload.php';
 
 use Respect\Relational\Db;
 
-$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
-//$pdo = new PDO("mysql:host={$dbconfig['hostname']}; dbname={$dbconfig['dbname']}; ", "{$dbconfig['username']}","{$dbconfig['password']}");
+//$pdo = new PDO("mysql:host=localhost; dbname=testeadmin; ", 'root', '5834');
+$pdo = new PDO("mysql:host={$dbconfig['hostname']}; dbname={$dbconfig['dbname']}; ", "{$dbconfig['username']}","{$dbconfig['password']}");
 $pdo->exec("set names utf8");
 $pdo->setAttribute(1002, 'SET NAMES utf8');
 

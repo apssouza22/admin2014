@@ -1,7 +1,7 @@
 /* 
  * Funções comuns para todos os projetos
  */
-
+var Adm = Adm || {};
 
 (function($) {
 	window.l =  function(p) {
